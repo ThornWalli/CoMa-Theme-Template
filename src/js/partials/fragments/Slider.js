@@ -6,6 +6,7 @@ var Swiper = require('swiper');
 module.exports = ScrollObserver.extend({
     swiper: null,
     visible: false,
+    init: false,
 
     modelConstructor: ScrollObserver.prototype.modelConstructor.extend({
         session: {
@@ -37,6 +38,7 @@ module.exports = ScrollObserver.extend({
             speed: this.model.speed,
             onInit: function() {
                 this.el.classList.add('js-slider-init');
+                this.init = true;
             }.bind(this)
         };
         if (this.el.querySelector('.swiper-pagination')) {
@@ -55,14 +57,19 @@ module.exports = ScrollObserver.extend({
 
     onActive: function(info) {
         console.log(info.y);
-        if (!this.visible){
-        this.swiper.startAutoplay();
-        this.visible = true;
+        if (!this.visible) {
+            if (this.init) {
+                this.swiper.startAutoplay();
+            }
+            this.visible = true;
         }
     },
 
     onInactive: function() {
+
         this.visible = false;
-        this.swiper.stopAutoplay();
+        if (this.init) {
+            this.swiper.stopAutoplay();
+        }
     }
 });
