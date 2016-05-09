@@ -1,0 +1,56 @@
+$width: 28px;
+$height: 5px;
+.partial[data-partial="elements/touch-button/menu"] {
+  > span {
+    width: $width;
+    height: calc($height * 5px);
+    span:before, span:after, &:after, &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #ffffff;
+      border-radius: 1px;
+      height: $height;
+      width: $width;
+      transition-duration: .35s;
+      transition-timing-function: ease;
+    }
+    $top: 0;
+    &:before {
+      opacity: 1;
+      top: $top;
+      transition-property: opacity;
+    }
+    $top: calc($top + $height * 2px);
+    span {
+      transition-property: opacity;
+      &:before, &:after {
+        backface-visibility: hidden;
+        transform-origin: center;
+        top: $top;
+      }
+    }
+    $top: calc($top + $height * 2px);
+    &:after {
+      opacity: 1;
+      top: $top;
+      transition-property: opacity;
+    }
+  }
+}
+input:checked + .partial[data-partial="elements/touch-button/menu"] {
+  @extend .selected.partial[data-partial="elements/touch-button"];
+  > span {
+    > span {
+      &:before {
+        transform: rotate(-45deg) scale(1.3, 1);
+      }
+      &:after {
+        transform: rotate(45deg) scale(1.3, 1);
+      }
+    }
+    &:before, &:after {
+      opacity: 0;
+    }
+  }
+}

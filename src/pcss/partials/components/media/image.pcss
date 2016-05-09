@@ -1,0 +1,20 @@
+.partial[data-partial="components/media/image"] {
+  @mixin docHelper 600px;
+  .partial[data-partial="components/post-list/post"] > section > .area-content & {
+    > div {
+      margin: 0 20px;
+      border: solid #cccccc 1px;
+      border-radius: 3px;
+      box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+  }
+  > div {
+    a {
+      display: block;
+      picture, img {
+        display: block;
+      }
+    }
+  }
+}

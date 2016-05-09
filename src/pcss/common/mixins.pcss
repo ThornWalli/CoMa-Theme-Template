@@ -1,0 +1,108 @@
+@define-mixin clearfix {
+  &:after, &:before {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+@define-mixin TypoBasic $margin:20px, $font-size: 18px {
+  /*> header {
+    margin: 0px $margin;
+    margin-bottom: $margin;
+    .headline, .subline {
+      margin: $margin / 2 0;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .headline {
+      font-size: $font-size;
+      color: $color-post-header-headline-default;
+    }
+    .subline {
+      font-size: $font-size * (14 / 18);
+      color: $color-post-header-subline-default;
+    }
+  }*/
+  img[class*="wp-image-"] {
+    @media(max-width: $screen-xs-max) {
+      width: 100%;
+      height: auto;
+    }
+    margin: $margin 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.2);
+    border: solid #ccc 1px;
+    border-radius: 3px;
+    box-sizing: content-box;
+  }
+  > h1, > h2, > h3, > h4 {
+    margin: $margin;
+    line-height: 1.2;
+  }
+  > h1, > h2 {
+    font-size: $font-size;
+  }
+  > h3, > h4 {
+    font-size: $font-size * (16 / 18);
+  }
+  > h4 {
+    font-size: $font-size * (14 / 18);
+  }
+  > p, > blockquote, > blockquote > p {
+    margin: $margin;
+    line-height: 1.6;
+    font-size: $font-size * (16 / 18);
+    /*&:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }*/
+  }
+  > p, > blockquote {
+    [data-partial="components/accordion-list/accordion"] &, .partial[data-partial="components/post-list/post"] & {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  b, strong {
+    font-weight: 600;
+  }
+  > blockquote {
+    margin: $margin $margin * 2;
+    border-left: solid #555555 4px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  > ul, > ol {
+    margin: $margin $margin $margin $margin + 20px;
+    padding: 0;
+    font-size: $font-size * (15 / 18);
+    li {
+      margin-bottom: $margin / 2;
+      padding: 0 0 0 5px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      ul, ol {
+        margin: $margin / 2 0 $margin / 2 20px;
+      }
+    }
+  }
+  > a {
+    text-decoration: underline;
+    color: $color-link-default;
+    &:hover {
+      color: $color-link-selected-default;
+    }
+  }
+}

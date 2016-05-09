@@ -1,0 +1,78 @@
+---
+
+post:
+  area:
+    slider:
+      slider:
+        pagination: true
+        arrows: true
+        loop: true
+        slides:
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_1.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_2.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_3.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_4.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_5.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_6.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_7.png'}
+          -
+            image:
+              sources:
+                - {type: 'default', srcset: 'assets/img/content/example_8.png'}
+
+
+---
+{{#mixin "common/content" this}}
+  {{#content "main"}}
+    {{#with body}}
+
+
+            {{#mixin "components/post-list/post"}}
+              {{#content "area"}}
+              {{#mixin "areas/post"}}
+
+                {{#content "content"}}
+                    {{{mixin "components/media/code"}}}
+                    {{{mixin "components/media/slider" ../../../post.area.slider}}}
+                    {{{mixin "components/media/text"}}}
+                    {{{mixin "components/media/image"}}}
+                    {{{mixin "components/media/video"}}}
+                    {{{mixin "components/media/video" youtube=null}}}
+                {{/content}}
+
+              {{/mixin}}
+              {{/content}}
+            {{/mixin}}
+
+
+      {{{mixin "components/post-list/post"}}}
+
+    {{/with}}
+  {{/content}}
+
+    {{#content "sidebar"}}
+    {{{mixin "components/sidebar/menu"}}}
+    {{{mixin "components/sidebar/post-list"}}}
+  {{/content}}
+{{/mixin}}

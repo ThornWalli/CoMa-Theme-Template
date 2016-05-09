@@ -1,0 +1,30 @@
+$touch-button-size: 52px;
+$touch-button-offset: 10px;
+.partial[data-partial="elements/touch-button"], .partial[data-partial^="elements/touch-button"] {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  &.disabled {
+    pointer-events: none;
+  }
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6);
+  position: relative;
+  border-radius: 50%;
+  width: $touch-button-size;
+  height: $touch-button-size;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  &.selected, &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  > span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    color: #ffffff;
+    width: $touch-button-size - $touch-button-offset;
+    height: $touch-button-size - $touch-button-offset;
+    transform: translate(-50%, -50%);
+  }
+}

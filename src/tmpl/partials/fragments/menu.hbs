@@ -1,0 +1,23 @@
+---
+class: ""
+items:
+  -
+    title: "Link 1."
+    url: "#link-1"
+    selected: true
+  -
+    title: "Link 2."
+    url: "#link-2"
+  -
+    title: "Link 3."
+    url: "#link-3"
+---
+<ul class="fragment{{#if class}} {{class}}{{/if}}" data-partial="fragments/menu">
+  {{#block "main"}}
+    {{#each items}}
+      <li {{#if selected}} class="selected" {{/if}}>
+        {{{mixin "elements/link" this}}}
+      </li>
+    {{/each}}
+  {{/block}}
+</ul>

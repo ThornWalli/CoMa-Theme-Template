@@ -1,0 +1,11 @@
+@define-mixin docHelper $max-width {
+  .doc-wrapper>.preview> & {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+}
+@define-mixin docHelperWrapper {
+  .doc-wrapper>.preview> & {
+    @mixin-content;
+  }
+}

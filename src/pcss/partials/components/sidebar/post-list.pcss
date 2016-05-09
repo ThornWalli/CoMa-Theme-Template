@@ -1,0 +1,19 @@
+.partial[data-partial="components/sidebar/post-list"] {
+  @extend .partial[data-partial="components/sidebar/menu"];
+  @mixin clearfix;
+  header {}
+  @media (min-width: $screen-md-min) {
+    ul {
+      li {
+        margin-top: 6px;
+        &.date {
+          font-weight: bold;
+          margin-bottom: 12px;
+        }
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

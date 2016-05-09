@@ -1,0 +1,26 @@
+---
+
+class: ""
+single-page: true
+headline: "CoMa"
+subline: "Content-Manager for Wordpress"
+site-url: "#site-url"
+
+---
+<header class="partial{{#if class}} {{class}}{{/if}}" data-partial="components/header">
+  <div class="grid-g">
+    <div class="grid-col-12-12">
+      {{!-- If single-template, header titles are down graded. --}}
+      {{#if single-page}}
+        <h1><a href="{{{site-url}}}">{{{headline}}}</a></h1>
+        <h2>{{{subline}}}</h2>
+      {{else}}
+        <h2><a href="{{{site-url}}}">{{{headline}}}</a></h2>
+        <h3>{{{subline}}}</h3>
+      {{/if}}
+    </div>
+    <div class="navigation grid-col-12-12 grid-col-sm-4-12 grid-col-lg-3-12">
+      {{{mixin "fragments/header/navigation"}}}
+    </div>
+  </div>
+</header>

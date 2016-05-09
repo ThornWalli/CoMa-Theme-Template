@@ -1,0 +1,31 @@
+[{
+  "name": "coma-theme-icon",
+  "path": "assets/fonts/coma-theme-icon/fonts/coma-theme-icon",
+  "style": "normal",
+  "weight": "400",
+  "testString": "\ue900\uee901"
+}, {
+  "name": "open-sans",
+  "path": "assets/fonts/open-sans/Light/OpenSans-Light",
+  "style": "normal",
+  "weight": "300",
+  "testString": "ABCD"
+}, {
+  "name": "open-sans",
+  "path": "assets/fonts/open-sans/Regular/OpenSans-Regular",
+  "style": "normal",
+  "weight": "400",
+  "testString": "ABCD"
+}, {
+  "name": "open-sans",
+  "path": "assets/fonts/open-sans/Semibold/OpenSans-Semibold",
+  "style": "normal",
+  "weight": "600",
+  "testString": "ABCD"
+}, {
+  "name": "open-sans",
+  "path": "assets/fonts/open-sans/Bold/OpenSans-Bold",
+  "style": "normal",
+  "weight": "700",
+  "testString": "ABCD"
+}]

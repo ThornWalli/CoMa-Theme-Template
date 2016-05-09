@@ -1,0 +1,28 @@
+---
+has-sidebar: true
+---
+<div class="grid-wrapper grid-g">
+
+{{#block "header"}}
+  {{{mixin "components/header" globals.header class="grid-col-12-12"}}}
+{{/block}}
+
+
+{{!-- /*grid-col-md-4-12 grid-col-lg-3-12*/ --}}
+
+<main class="grid-col-12-12 grid-col-sm-offset-4-12 grid-col-md-offset-4-12 grid-col-lg-offset-3-12{{#if has-sidebar}} grid-col-sm-8-12 grid-col-lg-6-12{{else}}grid-col-md-8-12 grid-col-lg-9-12{{/if}}">
+  {{#block "main"}}{{/block}}
+</main>
+{{#if has-sidebar}}
+
+  <aside class="grid-col-12-12 grid-col-md-8-12 grid-col-sm-offset-4-12 grid-col-lg-offset-0-12 grid-col-lg-3-12">
+    {{#block "sidebar"}}{{/block}}
+  </aside>
+
+{{/if}}
+
+{{#block "footer"}}
+  {{{mixin "components/footer" globals.footer class="grid-col-12-12"}}}
+{{/block}}
+
+</div>

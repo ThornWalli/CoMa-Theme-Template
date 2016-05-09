@@ -1,0 +1,28 @@
+---
+header:
+  headline: "Area Post Headline"
+  subline: "Area Post Subline"
+---
+<section class="partial" data-partial="areas/post">
+
+{{#if header}}
+
+      {{{mixin "elements/header" header}}}
+
+{{/if}}
+
+
+  <!-- Set class "area-content" for CoMa. -->
+  <div class="content area-content">
+
+    {{#block "content"}}
+    {{{mixin "components/media/text"}}}
+
+    {{{mixin "components/media/text"}}}
+
+    {{{mixin "components/media/text"}}}
+    {{/block}}
+
+  </div>
+
+</section>

@@ -1,0 +1,32 @@
+---
+title: "Media Video"
+youtube:
+  id: "lrkRAntci3g"
+  fullscreen: true
+  width: "auto"
+  height: "auto"
+native:
+  autoplay: false
+  controls: true
+  loop: false
+  muted: false
+  poster: false
+  preload: false
+  src: false
+  width: "auto"
+  height: "auto"
+  sources:
+    -
+      media: false
+      type: "video/mp4"
+      src: "external/videos/bigbuckbunny.mp4"
+---
+<div class="partial" data-partial="components/media/video">
+  <div>
+    {{#if youtube}}
+      {{mixin "elements/video/youtube" youtube}}
+    {{else}}
+      {{mixin "elements/video/native" native}}
+    {{/if}}
+  </div>
+</div>

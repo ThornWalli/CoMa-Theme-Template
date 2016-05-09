@@ -1,0 +1,23 @@
+---
+single-navigation:
+  class: "single-navigation"
+  items:
+    -
+      class: 'back'
+      url: '#home-url'
+      title: 'Back'
+---
+<nav class="partial" data-partial="fragments/header/navigation">
+  <input type="checkbox" id="header-menu" />
+  <label class="partial" data-partial="elements/touch-button/menu" for="header-menu">
+    <span>
+      <span></span>
+    </span>
+  </label>
+  <div>
+    {{#if single-navigation}}
+      {{{mixin "fragments/menu" single-navigation}}}
+    {{/if}}
+    {{{mixin "fragments/menu"}}}
+  </div>
+</nav>

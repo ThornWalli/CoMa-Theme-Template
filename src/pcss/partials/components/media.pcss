@@ -1,0 +1,25 @@
+.partial[data-partial="components/media"], .partial[data-partial^="components/media/"] {
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  transition: opacity .7s ease;
+
+  @mixin TypoBasic;
+  
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+  .partial[data-partial="components/post-list/post"] > section > .area-content & {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin: 10px 0;
+    padding: 5px 0;
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}

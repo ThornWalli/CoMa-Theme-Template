@@ -1,0 +1,18 @@
+.partial[data-partial="components/footer/navigation"] {
+  ul {
+    li {
+      a {
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+        color: $color-header-navigation-default;
+        &:hover {
+          color: $color-footer-navigation-selected;
+        }
+      }
+      &.selected {
+        a {
+          color: $color-footer-navigation-selected;
+        }
+      }
+    }
+  }
+}

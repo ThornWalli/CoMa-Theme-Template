@@ -1,0 +1,59 @@
+.partial[data-partial="components/header"] {
+  @mixin docHelper $screen-md;
+  > div {
+    @mixin clearfix;
+    > div {
+      position: relative;
+      &:first-child {
+        min-height: 120px;
+      }
+      h1, h2, h3, h4 {
+        margin: 0;
+        /*padding: 0 $offset-default;*/
+        &, a {
+          font-family: $font-basic;
+          line-height: 1.2;
+          color: #333333;
+          @media (--screen-md) {
+            white-space: nowrap;
+          }
+        }
+      }
+      h1, body.single-post & h2 {
+        font-size: 60px;
+        @media (--screen-sm) {
+          font-size: 80px;
+        }
+        line-height: 120px;
+        &, a {
+          color: #bbbbbb;
+        }
+      }
+      body:not(.single-post) & h2, body.single-post & h3 {
+        position: absolute;
+        bottom: 19px;
+        left: 50px;
+        right: 15px;
+        @media (--screen-sm-max) {
+          left: 25px;
+          right: 10px;
+        }
+        font-size: 30px;
+      }
+    }
+    position: relative;
+    >.navigation {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      @mixin docHelperWrapper {
+        position: relative;
+      }
+    }
+  }
+  .single-navigation {
+    .back {
+      border-right: solid #CCCCCC 6px;
+    }
+  }
+}

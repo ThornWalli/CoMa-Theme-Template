@@ -1,0 +1,40 @@
+---
+header:
+  headline: "Code Headline"
+  subline: "Code Subline"
+code-text: "<b>Bold</b>"
+id: 999
+line-numbers: true
+max-height: 300
+mode: "html"
+css-mode: false
+show-excuted-code: true
+show-headline: true
+text-code_preview: "Sourcecode-Preview"
+text-more: "Read more..."
+---
+
+<article class="controller partial" data-controller="./partials/components/Code" data-partial="components/media/code" data-mode="{{mode}}" data-max-height="{{max-height}}" data-start="0">
+  {{{mixin "elements/header" header}}}
+  <input type="checkbox" id="code-expander-{{id}}" />
+  <div class="code" data-container-resizer='{}'>
+    <pre class="language-{{mode}}{{#if line-numbers}} line-numbers{{/if}}"><code>{{code-text}}</code></pre>
+    <label for="code-expander-{{id}}" class="expander"><span>{{{text-more}}}</span></label>
+  </div>
+  {{#if show-excuted-code}}
+    <div class="preview">
+      {{#if show-headline}}
+        {{{mixin "elements/header" headline=text-code_preview}}}
+      {{/if}}
+      <div>
+        {{#if css-mode}}
+          <style type="text/css" rel="stylesheet">
+            {{{code-text}}}
+          </style>
+        {{else}}
+          {{{code-text}}}
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+</article>

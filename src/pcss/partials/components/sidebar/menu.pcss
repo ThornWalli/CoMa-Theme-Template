@@ -1,0 +1,46 @@
+.partial[data-partial="components/sidebar/menu"] {
+  @include clearfix();
+  margin: 0 20px;
+  margin-top: 15px;
+  >header, >ul {
+    padding: 0;
+  }
+  >header {
+    h1, h2, h3 {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: $color-sidebar-menu-header-default;
+      &:last-child {
+        border-bottom: solid #cccccc 1px;
+        margin-bottom: 10px;
+      }
+    }
+    
+  }
+  >ul {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 10px;
+    >li {
+      margin-top: 10px;
+      &:first-child {
+        margin-top: 0;
+      }
+      >a {
+        font-size: 14px;
+        text-decoration: none;
+        color: $color-header-navigation-default;
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+        &:hover {
+          color: $color-header-navigation-selected;
+        }
+      }
+    }
+  }
+  @media (--screen-lg) {
+    margin-left: 20px;
+  }
+}

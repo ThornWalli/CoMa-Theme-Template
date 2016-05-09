@@ -1,0 +1,51 @@
+---
+date: ""
+header:
+  headline: "Post headline"
+  subline: "Post subline"
+  image:
+    sources:
+        - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
+
+copy: "<p>Diamlorem semper! Nostrud, varius adipisci, occaecat, molestie. Vehicula hic nostrud netus excepturi mattis hac metus iusto doloribus conubia feugiat vehicula.</p><p>Aliquet lacinia eligendi iste! Exercitationem. Tristique cupidatat dictum suscipit nascetur condimentum amet, do sequi qui possimus incididunt reprehenderit molestiae rhoncus.</p><p>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</p>"
+
+more-link:
+  class: "more-link"
+  url: "#more-link"
+  title: "More..."
+---
+<article class="partial" data-partial="components/post-list/post">
+
+{{#with header}}
+
+  {{#mixin "elements/header" header}}
+
+    {{#content "before"}}
+
+      {{{mixin "elements/picture" ../image}}}
+
+    {{/content}}
+
+    {{#content "after"}}
+    {{/content}}
+
+  {{/mixin}}
+
+{{/with}}
+
+{{{copy}}}
+
+<p class="info">
+  {{#if date}}
+    <span class="date">{{{date}}}</span>
+  {{/if}}
+  {{#with more-link}}
+    {{{mixin "elements/link" this}}}
+  {{/with}}
+</p>
+
+{{#block "area"}}
+
+{{/block}}
+
+</article>

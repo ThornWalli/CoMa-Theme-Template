@@ -1,0 +1,23 @@
+---
+image:
+  sources:
+    - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
+link:
+  url: "#media-image"
+  title: "Media Image"
+---
+<div class="partial" data-partial="components/media/image">
+
+  <div>
+    {{#if link}}
+      {{#mixin "elements/link"}}
+        {{#content "title"}}
+          {{{mixin "elements/picture" ../image}}}
+        {{/content}}
+      {{/mixin}}
+    {{else}}
+      {{{mixin "elements/picture" image}}}
+    {{/if}}
+  </div>
+
+</div>

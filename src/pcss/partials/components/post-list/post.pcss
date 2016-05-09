@@ -1,0 +1,13 @@
+.partial[data-partial="components/post-list/post"] {
+  @mixin docHelper 600px;
+  body:not(.coma-edit-mode) & {
+    &[data-scroll-view], &.scroll-view {
+      opacity: 0.2;
+      transition: transform .7s ease, opacity .5s .2s ease;
+      &.in-view {
+        /*transform: translateX(0);*/
+        opacity: 1;
+      }
+    }
+  }
+}

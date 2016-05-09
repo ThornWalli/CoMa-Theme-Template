@@ -1,0 +1,27 @@
+.partial[data-partial="elements/header"] {
+  margin: 20px;
+  .partial[data-partial^="components/sidebar"] & {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .headline, .subline {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .headline {
+    font-size: 22px;
+    color: $color-post-header-headline-default;
+  }
+  .subline {
+    margin: 0;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-post-header-subline-default;
+  }
+}
