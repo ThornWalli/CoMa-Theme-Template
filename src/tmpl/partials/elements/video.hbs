@@ -1,0 +1,18 @@
+---
+sources:
+    -
+        type: "video/mp4"
+        media: "(min-width: 1200px)"
+        url: "../../external/videos/bigbuckbunny.mp4"
+    -
+        type: "video/mp4"
+        url: "../../external/videos/bigbuckbunny.mp4"
+---
+<video class="partial" data-partial="elements/video" width="100%" height="100%" style="width:100%;height:100%;" controls="controls" poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+    {{#each sources}}
+        <source src="{{url}}" type="{{type}}" media="all{{#if media}} and {{media}}{{/if}}" />
+    {{/each}}
+    {{#with subtitle}}
+        <track kind="subtitles" src="{{url}}" srclang="{{lang}}" />
+    {{/with}}
+</video>

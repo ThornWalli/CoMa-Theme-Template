@@ -5,15 +5,14 @@ var DomModel = require('../DomModel');
 var dataTypeDefinition = require('../dataTypeDefinition');
 var Vector = require('../Vector');
 var Bounds = require('../Bounds');
-var throttle = require('lodash/throttle');
 
+var element = require('../../utils/element');
 var viewport = require('../../services/viewport');
 
 var viewportDimension = new Vector();
 var objectDimension = new Vector();
 
 module.exports = Controller.extend({
-    $el: null,
     operation: 'subtractLocal',
 
     modelConstructor: DomModel.extend(dataTypeDefinition, {
@@ -31,11 +30,8 @@ module.exports = Controller.extend({
     initialize: function() {
         Controller.prototype.initialize.apply(this, arguments);
 
-        this.$el = $(this.el);
         this.bounds = new Bounds();
-        this.position = new Vector();
-        this.dimension = new Vector();
-        this.offset = new Vector();
+        this.outOfViewportInfo = null;
 
         if(this.model.extendedRange) {
             this.operation = 'addLocal';
@@ -48,8 +44,8 @@ module.exports = Controller.extend({
         }, this);
     },
 
-    onActive: function(info, direction) {
-        console.log('HUI', info.y, direction.y);
+    onActive: function() {
+        // console.log('HUI', info.y, direction.y);
     },
 
     onInactive: function() {
@@ -63,33 +59,28 @@ module.exports = Controller.extend({
 });
 
 function onScroll(viewportBounds, direction) {
-    if(this.bounds.intersectsY(viewportBounds)) {
+    if(this.bounds.intersects(viewportBounds)) {
+        this.outOfViewportInfo = null;
         this.onActive(getIntersectionInfo(this.bounds, viewportBounds, this.operation), direction);
     } else {
-        this.onInactive(direction);
+        if(!this.outOfViewportInfo) {
+            this.outOfViewportInfo = new Vector();
+            this.outOfViewportInfo.reset(getIntersectionInfo(this.bounds, viewportBounds, this.operation)).clampLocal(-1, 1);
+            this.onInactive(this.outOfViewportInfo, direction);
+        }
     }
 }
 
 function onInit(viewportBounds, direction) {
-    var bounds = this.bounds;
-    updateBounds(this.$el, this.position, this.dimension, bounds, this.offset, viewportBounds);
+    element.updateBounds(this.el, this.bounds);
     viewportDimension = viewportBounds.getDimension(viewportDimension);
     onScroll.bind(this)(viewportBounds, direction);
 }
 
 function onResize(viewportBounds, direction) {
-    var bounds = this.bounds;
-    updateBounds(this.$el, this.position, this.dimension, bounds, this.offset, viewportBounds);
+    element.updateBounds(this.el, this.bounds);
     viewportDimension = viewportBounds.getDimension(viewportDimension);
     onScroll.bind(this)(viewportBounds, direction);
-}
-
-function updateBounds(node, position, dimension, bounds, offset, viewportBounds) {
-    var off = getOffset(offset, node.get(0));
-    position.resetValues(off.x + viewportBounds.min.x, off.y + viewportBounds.min.y, 0);
-    console.log(position);
-    dimension.resetValues(node.outerWidth(), node.outerHeight(), 0);
-    bounds.setMin(position).max.resetValues(dimension.x + position.x, dimension.y + position.y, dimension.z + position.z);
 }
 
 function getIntersectionInfo(bounds, viewportBounds, operation) {
@@ -102,11 +93,4 @@ function getRange(bounds, operation) {
 
 function normalizeIntersectionInfoByRange(intersectionInfo, range) {
     return intersectionInfo.divideLocal(range.absLocal());
-}
-
-function getOffset(offset, node) {
-    var box = node.getBoundingClientRect();
-    var top = box.top + node.clientTop;
-    var left = box.left + node.clientLeft;
-    return offset.setX(left).setY(top);
 }

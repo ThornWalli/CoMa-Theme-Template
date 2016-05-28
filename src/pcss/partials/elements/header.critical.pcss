@@ -1,6 +1,6 @@
 .partial[data-partial="elements/header"] {
   margin: 20px;
-  .partial[data-partial^="components/sidebar"] & {
+  .partial[data-partial^='components/sidebar'] & {
     margin-left: 0;
     margin-right: 0;
   }
@@ -14,14 +14,22 @@
     }
   }
   .headline {
-    font-size: 22px;
+    font-size: calc(1em * (22 / 16));
     color: $color-post-header-headline-default;
   }
   .subline {
     margin: 0;
     text-align: left;
-    font-size: 18px;
+    font-size: calc(1em * (18 / 16));
     font-weight: 600;
     color: $color-post-header-subline-default;
+  }
+  .partial[data-partial^="components/sidebar"] & {
+    .headline {
+      font-size: calc(1em * (18 / 16));
+    }
+    .subline {
+      font-size: calc(1em * (18 / 16));
+    }
   }
 }

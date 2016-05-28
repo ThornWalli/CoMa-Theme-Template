@@ -6,11 +6,11 @@
         "title": "CoMa - Theme-Layout",
         "description": "CoMa - Theme-Layout",
         "image": {
-            "url": "assets/img/logo.png",
-            "secureUrl": "assets/img/logo.png",
+            "url": "assets/img/coma_wallpaper-600x315.png",
+            "secureUrl": "assets/img/coma_wallpaper-600x315.png",
             "type": "image/png",
-            "width": 200,
-            "height": 200
+            "width": 600,
+            "height": 315
         },
         "localization": "de_DE"
     },

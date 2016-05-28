@@ -1,7 +1,9 @@
 ---
-id: "lrkRAntci3g"
+id: "VBafwg16xpU"
 fullscreen: true
 width: "auto"
 height: "auto"
+data:
+  inview-autoplay: true
 ---
-<iframe frameborder="0" {{#if fullscreen}} allowfullscreen {{/if}} src="//www.youtube.com/embed/{{id}}" width="{{width}}" height="{{height}}"></iframe>
+<iframe class="partial controller" id="video-youtube-{{{id}}}" data-partial="elements/video/youtube" data-controller="./partials/elements/video/Youtube" frameborder="0" {{#if fullscreen}} allowfullscreen {{/if}} data-src="//www.youtube.com/embed/{{id}}" src="" width="{{width}}" height="{{height}}"{{#each data}}data-{{@key}}="{{this}}"{{/each}}></iframe>

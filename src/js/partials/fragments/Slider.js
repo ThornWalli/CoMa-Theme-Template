@@ -1,14 +1,14 @@
 "use strict";
 
-var ScrollObserver = require('../../base/controller/ScrollObserver');
+var PositionObserver = require('../../base/scroll/PositionObserver');
 var Swiper = require('swiper');
 
-module.exports = ScrollObserver.extend({
+module.exports = PositionObserver.extend({
     swiper: null,
     visible: false,
     init: false,
 
-    modelConstructor: ScrollObserver.prototype.modelConstructor.extend({
+    modelConstructor: PositionObserver.prototype.modelConstructor.extend({
         session: {
             loop: {
                 type: 'boolean',
@@ -30,7 +30,7 @@ module.exports = ScrollObserver.extend({
     }),
 
     initialize: function() {
-        ScrollObserver.prototype.initialize.apply(this, arguments);
+        PositionObserver.prototype.initialize.apply(this, arguments);
         var config = {
             loop: this.model.loop,
             effect: this.model.effect,
@@ -66,10 +66,9 @@ module.exports = ScrollObserver.extend({
     },
 
     onInactive: function() {
-
-        this.visible = false;
-        if (this.init) {
+        if (this.init && this.visible) {
             this.swiper.stopAutoplay();
         }
+        this.visible = false;
     }
 });

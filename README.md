@@ -1,1 +1,1 @@
-# CoMa-Theme-Template
+# CoMa - Theme-Template

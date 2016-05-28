@@ -5,28 +5,8 @@
     clear: both;
   }
 }
-@define-mixin TypoBasic $margin:20px, $font-size: 18px {
-  /*> header {
-    margin: 0px $margin;
-    margin-bottom: $margin;
-    .headline, .subline {
-      margin: $margin / 2 0;
-      &:first-child {
-        margin-top: 0;
-      }
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    .headline {
-      font-size: $font-size;
-      color: $color-post-header-headline-default;
-    }
-    .subline {
-      font-size: $font-size * (14 / 18);
-      color: $color-post-header-subline-default;
-    }
-  }*/
+@define-mixin TypoBasic {
+  $margin: 20px;
   img[class*="wp-image-"] {
     @media(max-width: $screen-xs-max) {
       width: 100%;
@@ -41,29 +21,45 @@
     border-radius: 3px;
     box-sizing: content-box;
   }
-  > h1, > h2, > h3, > h4 {
+  > h1, > h2, > h3, > h4, > h5, > h6 {
     margin: $margin;
     line-height: 1.2;
   }
   > h1, > h2 {
-    font-size: $font-size;
+    font-size: calc(1em * (22 / 16));
   }
-  > h3, > h4 {
-    font-size: $font-size * (16 / 18);
-  }
-  > h4 {
-    font-size: $font-size * (14 / 18);
-  }
-  > p, > blockquote, > blockquote > p {
+  > h2 {
     margin: $margin;
+    font-size: calc(1em * (18 / 16));
+  }
+  > h1 + h2 {
+    margin: calc($margin / 2) $margin;
+  }
+  > h3, > h4, > h5, > h6 {
+    font-size: calc(1em * (18 / 16));
+    font-weight: 600;
+    color: #888;
+  }
+  > h4, > h5, > h6 {
+    font-size: calc(1em * (16 / 16));
+  }
+  > h5, > h6 {
+    margin: calc($margin / 2) $margin;
+    font-size: calc(1em * (15 / 16));
+  }
+  > h6 {
+    font-size: calc(1em * (14 / 16));
+  }
+  p {
+    margin: $margin;
+  }
+  small {
+  font-size: calc(1rem * (14 / 16));
+  }
+  > p, > blockquote, > blockquote > p, ul>li, ol>li {
     line-height: 1.6;
-    font-size: $font-size * (16 / 18);
-    /*&:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }*/
+    font-size: 1rem;
+
   }
   > p, > blockquote {
     [data-partial="components/accordion-list/accordion"] &, .partial[data-partial="components/post-list/post"] & {
@@ -78,27 +74,28 @@
   b, strong {
     font-weight: 600;
   }
+
   > blockquote {
-    margin: $margin $margin * 2;
+    margin: $margin calc($margin * 2);
     border-left: solid #555555 4px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
   > ul, > ol {
-    margin: $margin $margin $margin $margin + 20px;
+    margin: $margin $margin $margin calc($margin * 3);
     padding: 0;
-    font-size: $font-size * (15 / 18);
     li {
-      margin-bottom: $margin / 2;
+      margin-bottom: calc($margin / 4);
       padding: 0 0 0 5px;
       &:last-child {
         margin-bottom: 0;
       }
       ul, ol {
-        margin: $margin / 2 0 $margin / 2 20px;
+        margin: calc($margin / 2) 0 calc($margin / 2) 20px;
+        padding: 0;
       }
     }
   }
-  > a {
+  a {
     text-decoration: underline;
     color: $color-link-default;
     &:hover {

@@ -12,8 +12,35 @@
       margin: -20px;
       margin-bottom: 20px;
       border-radius: 3px 0 0 0;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
   }
+
+  &, &.medium-stage {
+  > header picture {
+    &:before {
+      display: block;
+      content: "";
+      padding-top: calc((480 / 992) * 100)%;
+    }
+    }
+  }
+
+  &.small-stage {
+  > header picture {
+    &:before {
+      display: block;
+      content: "";
+      padding-top: calc((240 / 992) * 100)%;
+    }
+  }
+  }
+
   > p.info {
     @mixin clearfix;
     margin: 20px;
@@ -56,27 +83,42 @@
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
-    > header {
+
+
+    > .partial[data-partial="elements/header"] {
+      margin: 0;
       margin-bottom: 20px;
       padding: 20px;
       background-color: #333;
       box-shadow: inset 0 0px 20px 0 rgba(0, 0, 0, 0.6);
-        .headline, .subline {
-          margin: 0;
-          margin-bottom: 10px;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          &, > * {
-            color: $color-primary-headline-dark;
-          }
+      picture {
+        &:before {
+          position: relative;
+          content: "d";
+          padding-top: calc((480 / 960) * 100)%;
         }
-        .headline {
-          font-size: 18px;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
         }
-        .subline {
-          font-size: 14px;
+      }
+      .headline, .subline {
+        margin: 0;
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
         }
+        &, > * {
+          color: $color-primary-headline-dark;
+        }
+      }
+      .headline {
+        font-size: 18px;
+      }
+      .subline {
+        font-size: 14px;
+      }
     }
     > .area-content {
       position: relative;

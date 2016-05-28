@@ -6,14 +6,16 @@ var Enum = require('enum');
 var remove = require('lodash/remove');
 var animationFrame = global.animationFrame;
 
+
+
 var Viewport = function(frame, content) {
     this.frame = frame || this.frame;
     this.content = content || this.content;
 
-    if(this.frame.innerWidth) {
+    if (this.frame.innerWidth) {
         this.dimensionKeyName.width = 'innerWidth';
         this.dimensionKeyName.height = 'innerHeight';
-    } else if(this.frame.offsetWidth) {
+    } else if (this.frame.offsetWidth) {
         this.dimensionKeyName.width = 'offsetWidth';
         this.dimensionKeyName.height = 'offsetHeight';
     } else {
@@ -21,10 +23,10 @@ var Viewport = function(frame, content) {
         this.dimensionKeyName.height = 'clientHeight';
     }
 
-    if('scrollX' in this.frame) {
+    if ('scrollX' in this.frame) {
         this.scrollKeyName.x = 'scrollX';
         this.scrollKeyName.y = 'scrollY';
-    } else if('pageXOffset' in this.frame) {
+    } else if ('pageXOffset' in this.frame) {
         this.scrollKeyName.x = 'pageXOffset';
         this.scrollKeyName.y = 'pageYOffset';
     } else {
@@ -34,11 +36,16 @@ var Viewport = function(frame, content) {
 
     if (global.addEventListener) {
         global.addEventListener('resize', animationFrame.throttle('viewport-resize', onResize.bind(this), onMeasure.bind(this)), false);
-        global.addEventListener('scroll', animationFrame.throttle('viewport-scroll',onScroll.bind(this), onMeasure.bind(this)), true);
-        // document.addEventListener('wheel', onMeasure.bind(this), false);
+        global.addEventListener('scroll', animationFrame.throttle('viewport-scroll', onScroll.bind(this), onMeasure.bind(this)), true);
+        document.querySelectorAll('img').forEach(function(node) {
+            node.addEventListener('load', onImageLoad.bind(this));
+        }.bind(this));
     } else {
         global.attachEvent('onresize', animationFrame.throttle('viewport-resize', onResize.bind(this), onMeasure.bind(this)));
         global.attachEvent('scroll', animationFrame.throttle('viewport-scroll', onScroll.bind(this), onMeasure.bind(this)));
+        document.querySelectorAll('img').forEach(function(node) {
+            node.attachEvent('onload', onImageLoad.bind(this));
+        }.bind(this));
     }
 
     animationFrame.add(function() {
@@ -51,8 +58,14 @@ Viewport.prototype.EVENT_TYPES = new Enum(['RESIZE', 'SCROLL', 'INIT']);
 Viewport.prototype.init = false;
 Viewport.prototype.frame = global;
 Viewport.prototype.content = (document.documentElement || document.body.parentNode || document.body);
-Viewport.prototype.dimensionKeyName = {width: null, height: null};
-Viewport.prototype.scrollKeyName = {x: null, y: null};
+Viewport.prototype.dimensionKeyName = {
+    width: null,
+    height: null
+};
+Viewport.prototype.scrollKeyName = {
+    x: null,
+    y: null
+};
 Viewport.prototype.scrollX = 0;
 Viewport.prototype.scrollY = 0;
 
@@ -86,6 +99,12 @@ Viewport.prototype.unregister = function(scope) {
 };
 
 module.exports = Viewport;
+
+function onImageLoad(e) {
+    console.log(e);
+    onMeasure.bind(this)();
+    onResize.bind(this)();
+}
 
 function onInit() {
     updateOffset(this);

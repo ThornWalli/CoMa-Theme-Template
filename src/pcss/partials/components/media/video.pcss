@@ -16,7 +16,10 @@
       display: block;
       padding-top: calc((9/16) * 100)%;
     }
-    video, iframe {
+    .mejs-container, .mejs-inner, .mejs-mediaelement, video {
+      height: 100% !important;
+    }
+     iframe, [data-partial="elements/video/mediaelement"] {
       display: block;
       position: absolute;
       top: 0;

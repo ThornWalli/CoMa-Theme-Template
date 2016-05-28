@@ -1,20 +1,22 @@
 {
-	"name": "agency-boilerplate",
-	"version": "2.0.1",
-	"description": "agency - frontend boilerplate",
+	"name": "CoMa - Theme-Template",
+	"version": "1.0.0",
+	"description": "CoMa - Theme-Template for the Wordpress CoMa-Theme",
 	"keywords": [
+		"coma",
+		"theme",
 		"boilerplate"
 	],
-	"homepage": "https://github.com/StephanGerbeth/agency-boilerplate#readme",
+	"homepage": "https://github.com/ThornWalli/CoMa-Theme-Template#readme",
 	"bugs": {
-		"url": "https://github.com/StephanGerbeth/agency-boilerplate/issues"
+		"url": "https://github.com/ThornWalli/CoMa-Theme-Template/issues"
 	},
 	"license": "GPL-3.0",
-	"author": "Stephan Gerbeth",
+	"author": "Thorn-Welf Walli",
 	"main": "none",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/StephanGerbeth/agency-boilerplate.git"
+		"url": "git+https://github.com/ThornWalli/CoMa-Theme-Template.git"
 	},
 	"scripts": {
 		"heroku": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=production --server=agency-server",
@@ -30,29 +32,35 @@
 		"ampersand-collection": "^1.6.1",
 		"ampersand-model": "^6.0.3",
 		"ampersand-state": "^4.9.1",
-		"ampersand-view": "^9.0.2",
+		"ampersand-view": "^10.0.0",
 		"blockadblock": "^3.2.0",
 		"color": "^0.11.1",
+		"device.js": "^0.1.2",
 		"enum": "^2.2.0",
 		"es6-promise": "^3.0.2",
+		"fastdom": "^1.0.1",
+		"fastdom-sequencer": "^1.0.3",
 		"fontfaceobserver": "^1.6.1",
+		"gsap": "^1.18.4",
 		"historyjs": "^1.8.0-b2",
 		"jquery": "^2.1.4",
 		"lodash": "^4.6.1",
+		"mediaelement": "^2.21.2",
 		"modernizr": "^3.0.0",
 		"outdated-browser": "^1.0.2",
 		"pepjs": "^0.4.0",
+		"prevent-overscroll": "^0.1.0",
+		"prismjs": "^1.5.0",
 		"purecss": "^0.6.0",
+		"swiper": "^3.3.1",
 		"url": "^0.11.0"
 	},
 	"devDependencies": {
-		"agency-environment": "git+https://git@github.com/StephanGerbeth/agency-environment.git#feature/purecss-tools",
+		"agency-environment": "git+https://git@github.com/StephanGerbeth/agency-environment.git#version/2.0",
 		"agency-server": "git+https://git@github.com/StephanGerbeth/agency-server.git",
 		"fb": "^1.0.2",
 		"htmlescape": "^1.1.0",
 		"jshint": "^2.8.0",
-		"minimist": "^1.2.0",
-		"prismjs": "^1.4.1",
-		"swiper": "^3.3.1"
+		"minimist": "^1.2.0"
 	}
 }

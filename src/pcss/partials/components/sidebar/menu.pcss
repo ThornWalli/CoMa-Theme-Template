@@ -1,24 +1,31 @@
 .partial[data-partial="components/sidebar/menu"] {
   @include clearfix();
-  margin: 0 20px;
+  margin: 0;
   margin-top: 15px;
-  >header, >ul {
+  >ul {
     padding: 0;
   }
-  >header {
-    h1, h2, h3 {
-      margin: 0;
-      padding: 10px 0;
-      font-size: 18px;
+  >.partial[data-partial="elements/header"] {
+  margin-bottom: 10px;
+    .headline, .subline {
       font-weight: 600;
       line-height: 1.2;
-      color: $color-sidebar-menu-header-default;
+      &:first-child {
+        margin-top: 0;
+      }
       &:last-child {
         border-bottom: solid #cccccc 1px;
-        margin-bottom: 10px;
+        padding-bottom: 10px;
       }
     }
-    
+    .headline {
+      font-size: calc(1em * (18 / 16));
+      color: $color-sidebar-menu-header-default;
+    }
+    .subline {
+      font-size: calc(1em * (16 / 16));
+      color: $color-sidebar-menu-header-secondary;
+    }
   }
   >ul {
     list-style: none;
@@ -39,6 +46,9 @@
         }
       }
     }
+  }
+  @media (--screen-sm-max) {
+    padding: 0 20px;
   }
   @media (--screen-lg) {
     margin-left: 20px;

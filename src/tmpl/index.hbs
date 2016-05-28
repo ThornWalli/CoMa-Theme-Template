@@ -47,6 +47,12 @@ post:
   {{#content "main"}}
     {{#with body}}
 
+                {{#mixin "components/post-list/post" header=false more-link=false}}
+
+                                {{#content "content"}}
+                                <h2 style="text-align: center;">Hier wird noch gebaut…</h2>
+                {{/content}}
+              {{/mixin}}
 
             {{#mixin "components/post-list/post"}}
               {{#content "area"}}

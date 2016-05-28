@@ -1,32 +1,26 @@
 ---
 title: "Media Video"
 youtube:
-  id: "lrkRAntci3g"
+  id: "VBafwg16xpU"
   fullscreen: true
   width: "auto"
   height: "auto"
-native:
-  autoplay: false
-  controls: true
-  loop: false
-  muted: false
-  poster: false
-  preload: false
-  src: false
-  width: "auto"
-  height: "auto"
+video:
   sources:
-    -
-      media: false
-      type: "video/mp4"
-      src: "external/videos/bigbuckbunny.mp4"
+      -
+          type: "video/mp4"
+          media: "(min-width: 1200px)"
+          url: "external/videos/bigbuckbunny.mp4"
+      -
+          type: "video/mp4"
+          url: "external/videos/bigbuckbunny.mp4"
 ---
 <div class="partial" data-partial="components/media/video">
   <div>
     {{#if youtube}}
       {{mixin "elements/video/youtube" youtube}}
     {{else}}
-      {{mixin "elements/video/native" native}}
+      {{mixin "elements/video/mediaelement" video}}
     {{/if}}
   </div>
 </div>
