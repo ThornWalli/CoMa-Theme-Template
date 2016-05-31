@@ -1,0 +1,24 @@
+.partial[data-partial="elements/video/youtube"] {
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+  position: relative;
+  &:not(.js-ready) {
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      background: #333333;
+      font-size: calc(1em * (18 / 16));
+      font-weight: 500;
+      color: white;
+      content: "Loading ...";
+      text-align: center;
+      padding: 25%
+    }
+  }
+}

@@ -1,9 +1,11 @@
 ---
 date: ""
+small-stage: false
 header:
   headline: "Post headline"
   subline: "Post subline"
-  image:
+  small-stage: false
+  picture:
     sources:
         - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
 
@@ -14,16 +16,14 @@ more-link:
   url: "#more-link"
   title: "More..."
 ---
+<article class="partial{{#if small-stage}} small-stage{{/if}}" data-partial="components/post-list/post">
 
-<article class="partial" data-partial="components/post-list/post">
-
-  {{#with header}}
+  {{#if header}}
 
     {{#mixin "elements/header" header}}
 
       {{#content "before"}}
-
-        {{{mixin "elements/picture" ../image}}}
+        {{{mixin "elements/picture" picture}}}
 
       {{/content}}
 
@@ -32,23 +32,23 @@ more-link:
 
     {{/mixin}}
 
-  {{/with}}
+  {{/if}}
 
   {{#block "content"}}
-     {{{copy}}}
-    {{/block}}
+    {{{copy}}}
+  {{/block}}
 
-      <p class="info">
-        {{#if date}}
-          <span class="date">{{{date}}}</span>
-        {{/if}}
-        {{#with more-link}}
-          {{{mixin "elements/link" this}}}
-        {{/with}}
-      </p>
+  <p class="info">
+    {{#if date}}
+      <span class="date">{{{date}}}</span>
+    {{/if}}
+    {{#with more-link}}
+      {{{mixin "elements/link" this}}}
+    {{/with}}
+  </p>
 
-      {{#block "area"}}
+  {{#block "area"}}
 
-      {{/block}}
+  {{/block}}
 
 </article>

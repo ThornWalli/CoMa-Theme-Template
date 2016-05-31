@@ -1,14 +1,5 @@
-/*.partial[data-partial="fragments/slider"] {
-  position: relative;
-  .partial[data-partial="components/post-list/post"] > section > .area-content & {
-    > div {
-      margin: 20px;
-      border: solid #cccccc 1px;
-      border-radius: 3px;
-      box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-  }
+.partial[data-partial="fragments/slider"] {
+
   &:not(.js-slider-init) {
     > [data-partial="components/slider/slide"] {
       top: 0;
@@ -19,5 +10,8 @@
         visibility: visible;
       }
     }
+    .swiper-button-prev, .swiper-button-next {
+      display: none
+    }
   }
-}*/
+}

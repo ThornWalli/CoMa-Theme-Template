@@ -7,12 +7,12 @@ has-sidebar: true
   {{{mixin "components/header" globals.header class="grid-col-12-12"}}}
 {{/block}}
 
-<main class="grid-col-12-12 grid-col-md-offset-4-12 grid-col-md-offset-4-12 grid-col-lg-offset-3-12{{#if has-sidebar}} grid-col-md-8-12 grid-col-lg-6-12{{else}}grid-col-md-8-12 grid-col-lg-9-12{{/if}}">
+<main class="grid-col-12-12 grid-col-dm-offset-4-12 grid-col-sm-offset-4-12 grid-col-md-offset-3-12{{#if has-sidebar}} grid-col-sm-8-12 grid-col-md-6-12{{else}}grid-col-sm-8-12 grid-col-md-9-12{{/if}}">
   {{#block "main"}}{{/block}}
 </main>
 {{#if has-sidebar}}
 
-  <aside class="grid-col-12-12 grid-col-md-8-12 grid-col-lg-3-12 grid-col-md-offset-4-12 grid-col-lg-offset-0-12">
+  <aside class="grid-col-12-12 grid-col-sm-8-12 grid-col-md-3-12 grid-col-sm-offset-4-12 grid-col-md-offset-0-12">
     <div class="grid-g">
       {{#block "sidebar"}}{{/block}}
     </div>

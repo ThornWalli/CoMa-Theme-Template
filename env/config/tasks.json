@@ -95,7 +95,7 @@
   "postcss": {
     "subtasks": [{
       "name": "default",
-      "sourcemap": true,
+      "sourcemap": false,
       "plugins": [{
         "name": "postcss-import",
         "params": []
@@ -141,6 +141,7 @@
       "md": "62em",
       "lg": "75em"
     },
+    "gutterWidth" : "0.375rem",
     "files": {
       "dest": "./generated/pcss/",
       "src": ["base", "grids-core"]
