@@ -4,27 +4,41 @@ header:
   subline: "Code Subline"
 code-text: "<b>Bold</b>"
 id: 999
-line-numbers: true
-max-height: 300
-mode: "html"
-css-mode: false
-show-excuted-code: true
-show-headline: true
-text-code_preview: "Sourcecode-Preview"
-text-more: "Read more..."
+settings:
+  show-line-numbers: true
+  start: 0
+  max-height: 300
+  mode: 'html'
+config:
+  css-mode: false
+  show-excuted-code: true
+  show-headline: true
+wording:
+  text-code-preview: "Sourcecode-Preview"
+  text-more: "Read more..."
 ---
+{{{def name="header" type="Headline"}}}
+{{{def name="code-text" type="CodeEditor" title="Code"}}}
+{{{def group="settings" name="css-mode" type="CheckBox" title="CSS-Mode"}}}
+{{{def group="settings" name="show-headline" type="CheckBox" title="Show Headline"}}}
+{{{def group="settings" name="show-line-numbers" type="CheckBox" title="Show Line-Numbers"}}}
+{{{def group="settings" name="show-excuted-code" type="CheckBox" title="Show excuded Code"}}}
+{{{def group="settings" name="start-row" type="TextField" title="Start Row" default=start}}}
+{{{def group="settings" name="max-height" type="TextField" title="Max. Height" default=max-height}}}
+{{{def group="wording" name="text-more" type="TextField" title="Text - More Code" desc="Text for show more Code."}}}
+{{{def group="wording" name="text-code-preview" type="TextField" title="Text - Code Preview" desc="Text for Code Preview Headline."}}}
 
-<article class="controller partial" data-controller="./partials/components/Code" data-partial="components/media/code" data-mode="{{mode}}" data-max-height="{{max-height}}" data-start="0">
+<article class="controller partial" data-controller="./partials/components/Code" data-partial="components/media/code" data-mode="{{mode}}" data-max-height="{{settings.max-height}}" data-start="{{settings.start}}">
   {{{mixin "elements/header" header}}}
   <input type="checkbox" id="code-expander-{{id}}" />
   <div class="code" data-container-resizer='{}'>
-    <pre class="language-{{mode}}{{#if line-numbers}} line-numbers{{/if}}"><code>{{code-text}}</code></pre>
-    <label for="code-expander-{{id}}" class="expander"><span>{{{text-more}}}</span></label>
+    <pre class="language-{{mode}}{{#if settings.show-line-numbers}} line-numbers{{/if}}"><code>{{code-text}}</code></pre>
+    <label for="code-expander-{{id}}" class="expander"><span>{{{wording.text-more-code}}}</span></label>
   </div>
-  {{#if show-excuted-code}}
+  {{#if settings.show-excuted-code}}
     <div class="preview">
-      {{#if show-headline}}
-        {{{mixin "elements/header" headline=text-code_preview}}}
+      {{#if settings.show-headline}}
+        {{{mixin "elements/header" headline=wording.text-code-preview}}}
       {{/if}}
       <div>
         {{#if css-mode}}

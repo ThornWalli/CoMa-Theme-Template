@@ -3,15 +3,23 @@ header:
   headline: "Post-List Headline"
   subline: "Post-List Subline"
 ---
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
+
 <section class="partial" data-partial="components/post-list">
 
-  <article>
+    <article>
 
       {{{mixin "elements/header" header}}}
 
-  </article>
+    </article>
 
-
-  {{{mixin "components/post-list/post"}}} {{{mixin "components/post-list/post"}}}
+  {{#block "posts"}}
+    {{#if area-content}}
+      {{{area-content}}}
+    {{else}}
+      {{{mixin "areas/post-list"}}}
+    {{/if}}
+  {{/block}}
 
 </section>

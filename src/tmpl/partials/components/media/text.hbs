@@ -2,9 +2,11 @@
 header:
   headline: "Media Text Headline"
   subline: "Media Text Subline"
-copy: "<p>Error, repudiandae similique cubilia magnis harum? Tincidunt dolorem, dolor natus! Ut velit tellus quo delectus, soluta vero, natoque augue officia.</p><p>Aliquam in vulputate ridiculus sollicitudin consequat! Provident laborum harum, habitasse magni interdum! Urna habitasse lobortis, porttitor, nonummy facilis nulla odit.</p><p>Nostra mollis, impedit viverra debitis laboriosam phasellus illo odit fusce! Voluptas tempore dis architecto at beatae excepteur condimentum, magna exercitation.</p>"
+text: "<p>Error, repudiandae similique cubilia magnis harum? Tincidunt dolorem, dolor natus! Ut velit tellus quo delectus, soluta vero, natoque augue officia.</p><p>Aliquam in vulputate ridiculus sollicitudin consequat! Provident laborum harum, habitasse magni interdum! Urna habitasse lobortis, porttitor, nonummy facilis nulla odit.</p><p>Nostra mollis, impedit viverra debitis laboriosam phasellus illo odit fusce! Voluptas tempore dis architecto at beatae excepteur condimentum, magna exercitation.</p>"
 ---
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
 <article class="partial" data-partial="components/media/text">
-  {{{mixin "elements/header"}}}
-  {{{copy}}}
+  {{{mixin "elements/header" header group="header"}}}
+  {{{text}}}
 </article>

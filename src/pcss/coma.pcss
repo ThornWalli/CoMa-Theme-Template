@@ -1,0 +1,34 @@
+.partial[data-partial="components/media/code"] {
+  body:not(.coma-edit-mode) & {
+    &:not(.js-code-init) {
+      > .code {
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          z-index: 10;
+          content: '';
+          background: rgba(255, 255, 255, 0.8);
+          background-image: url("../assets/img//spinner-2x.gif");
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+    }
+  }
+}
+.partial[data-partial="fragments/slider"] {
+  .coma-edit-mode & {
+    .swiper-button-prev, .swiper-button-next, .swiper-pagination {
+      display: none !important;
+    }
+  }
+}
+.partial[data-partial^="areas/"] {
+  &.coma-area-empty {
+    display: none;
+  }
+}

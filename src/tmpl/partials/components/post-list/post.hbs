@@ -1,21 +1,33 @@
 ---
-date: ""
-small-stage: false
+
 header:
+  small-stage: false
   headline: "Post headline"
   subline: "Post subline"
-  small-stage: false
   picture:
     sources:
-        - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
+      - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
 
-copy: "<h1>Headline h1</h1><h2>Headline h2</h2><h3>Headline h3</h3><h4>Headline h4</h4><h5>Headline h5</h5><h6>Headline h6</h6><p><small>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</small></p><p>Diamlorem semper! Nostrud, <a href="#">varius adipisci</a>, occaecat, molestie. Vehicula hic nostrud netus excepturi mattis hac metus iusto doloribus conubia feugiat vehicula.</p><p><span style=\"font-style: italic;\">Aliquet lacinia eligendi iste! Exercitationem. Tristique cupidatat dictum suscipit nascetur condimentum amet, do sequi qui possimus incididunt reprehenderit molestiae rhoncus.</span></p><p><strong>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</strong></p><ul><li>List Item 1.</li><li>List Item 2.</li><li>List Item 3.<ul><li>List Item 1.</li><li>List Item 2.</li><li>List Item 3.</li></ul></li></ul><p>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</p><ol><li>List Item 1.</li><li>List Item 2.</li><li>List Item 3.<ol><li>List Item 1.</li><li>List Item 2.</li><li>List Item 3.</li></ol></li></ol><blockquote><p>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</p><ul><li>List Item 1.</li><li>List Item 2.</li><li>List Item 3.<ul><li>List Item 1.</li><li>List Item 2.</li><li>List Item 3.</li></ul></li></ul><p>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</p></blockquote><p>A tenetur dis est sodales ullamcorper repellendus voluptate scelerisque conubia, congue officia, suspendisse mus hic nemo maiores nihil, tempus nam.</p>"
+text: "<p>Nisi necessitatibus voluptatem occaecati quae dicta cupiditate! Phasellus, imperdiet, aliquam eaque fuga? Feugiat? Quam condimentum tenetur aperiam ab. Quasi quam. Recusandae volutpat incididunt ratione, possimus voluptate laoreet congue modi minim.</p>"
 
-more-link:
-  class: "more-link"
-  url: "#more-link"
+date: "00:00 00.00.0000"
+with-link: true
+link:
+  class: "link"
+  url: "#link"
   title: "More..."
+
+area-content: false
+
 ---
+{{{def group="header" name="small-stage" type="CheckBox" title="Size" desc="Large or Small Stage"}}}
+{{{def group="header" name="picture" type="Picture" title="Picture"}}}
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
+{{{def name="date" type="DateSelect" title="Date"}}}
+{{{def name="with-link" type="CheckBox" title="With Link" desc="Need for used Link"}}}
+{{{def name="link" type="Link" title="Link"}}}
+
 <article class="partial{{#if small-stage}} small-stage{{/if}}" data-partial="components/post-list/post">
 
   {{#if header}}
@@ -23,8 +35,9 @@ more-link:
     {{#mixin "elements/header" header}}
 
       {{#content "before"}}
-        {{{mixin "elements/picture" picture}}}
-
+        {{#if picture}}
+          {{{mixin "agency-pkg-elements/picture" picture}}}
+        {{/if}}
       {{/content}}
 
       {{#content "after"}}
@@ -34,21 +47,24 @@ more-link:
 
   {{/if}}
 
+
   {{#block "content"}}
-    {{{copy}}}
+    {{{text}}}
   {{/block}}
 
   <p class="info">
     {{#if date}}
       <span class="date">{{{date}}}</span>
     {{/if}}
-    {{#with more-link}}
-      {{{mixin "elements/link" this}}}
-    {{/with}}
+    {{#if with-link}}
+      {{{mixin "agency-pkg-elements/link" link}}}
+    {{/if}}
   </p>
 
   {{#block "area"}}
-
+    {{#if area-content}}
+      {{{area-content}}}
+    {{/if}}
   {{/block}}
 
 </article>

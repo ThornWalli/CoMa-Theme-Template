@@ -1,6 +1,6 @@
 "use strict";
 
-var js = require('./services/parser/js');
+var js = require('agency-pkg-services/parser/js')(require('./packages'));
 
 (function(){
     $(function() {

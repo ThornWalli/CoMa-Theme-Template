@@ -1,26 +1,18 @@
 ---
-title: "Media Video"
-youtube:
-  id: "VBafwg16xpU"
-  fullscreen: true
-  width: "auto"
-  height: "auto"
 video:
   sources:
-      -
-          type: "video/mp4"
-          media: "(min-width: 1200px)"
-          url: "external/videos/bigbuckbunny.mp4"
-      -
-          type: "video/mp4"
-          url: "external/videos/bigbuckbunny.mp4"
+    -
+      type: "video/mp4"
+      media: "(min-width: 1200px)"
+      url: "external/videos/bigbuckbunny.mp4"
+    -
+      type: "video/mp4"
+      url: "external/videos/bigbuckbunny.mp4"
 ---
+{{{def name="poster" type="Picture" value=poster title="Poster"}}}
+{{{def name="video" type="Video" value=video title="Video"}}}
 <div class="partial" data-partial="components/media/video">
   <div>
-    {{#if youtube}}
-      {{mixin "elements/video/youtube" youtube}}
-    {{else}}
-      {{mixin "elements/video/mediaelement" video}}
-    {{/if}}
+    {{{mixin "elements/video/mediaelement" this}}}
   </div>
 </div>

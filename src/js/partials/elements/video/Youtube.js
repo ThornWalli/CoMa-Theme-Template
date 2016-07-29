@@ -1,9 +1,9 @@
 "use strict";
 
-var PositionObserver = require('../../../base/scroll/PositionObserver');
+var PositionObserver = require('agency-pkg-base/scroll/PositionObserver');
 var youtube = require('../../../services/youtube');
 var UrlParse = require('url-parse');
-var viewport = require('../../../services/viewport');
+var viewport = require('agency-pkg-services/viewport');
 
 module.exports = PositionObserver.extend({
     api: null,

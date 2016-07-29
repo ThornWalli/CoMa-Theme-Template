@@ -8,35 +8,35 @@ post:
         loop: true
         slides:
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_1.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_2.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_3.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_4.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_5.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_6.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_7.png'}
           -
-            image:
+            picture:
               sources:
                 - {type: 'default', srcset: 'assets/img/content/example_8.png'}
 
@@ -46,38 +46,37 @@ post:
   {{#content "main"}}
     {{#with body}}
 
-                {{#mixin "components/post-list/post" header=false more-link=false}}
+      {{#mixin "components/post-list/post" header=false more-link=false}}
 
-                                {{#content "content"}}
-                                <h2 style="text-align: center;">Hier wird noch gebaut…</h2>
-                {{/content}}
-              {{/mixin}}
+        {{#content "content"}}
+          <h2 style="text-align: center;">Hier wird noch gebaut…</h2>
+        {{/content}}
+      {{/mixin}}
 
-            {{#mixin "components/post-list/post"}}
-              {{#content "area"}}
-              {{#mixin "areas/post"}}
+      {{#mixin "components/post-list/post"}}
+        {{#content "area"}}
+          {{#mixin "areas/post"}}
 
-                {{#content "content"}}
-                    {{{mixin "components/media/code"}}}
-                    {{{mixin "components/media/slider" ../../../post.area.slider}}}
-                    {{{mixin "components/media/text"}}}
-                    {{{mixin "components/media/image"}}}
-                    {{{mixin "components/media/video"}}}
-                    {{{mixin "components/media/video" youtube=null}}}
-                {{/content}}
+            {{#content "area-content"}}
+              {{{mixin "components/media/code"}}} {{{mixin "components/media/slider" ../../../post.area.slider}}} {{{mixin "components/media/text"}}} {{{mixin "components/media/image"}}} {{{mixin "components/media/youtube"}}} {{{mixin "components/media/video"}}}
+            {{/content}}
 
-              {{/mixin}}
-              {{/content}}
-            {{/mixin}}
-
+          {{/mixin}}
+        {{/content}}
+      {{/mixin}}
 
       {{{mixin "components/post-list/post"}}}
 
     {{/with}}
   {{/content}}
 
-    {{#content "sidebar"}}
-    {{{mixin "components/sidebar/menu"}}}
-    {{{mixin "components/sidebar/post-list"}}}
+  {{#content "sidebar"}}
+    <div class="grid-col-12-12 grid-col-sm-6-12 grid-col-md-12-12">
+      {{{mixin "components/sidebar/menu"}}}
+    </div>
+    <div class="grid-col-12-12 grid-col-sm-6-12 grid-col-md-12-12">
+      {{{mixin "components/sidebar/post-list"}}}
+    </div>
+
   {{/content}}
 {{/mixin}}

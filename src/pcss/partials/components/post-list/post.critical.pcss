@@ -13,37 +13,39 @@
       margin-bottom: 20px;
       border-radius: 3px 0 0 0;
       position: relative;
+      overflow: hidden;
       img {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
   }
-
   &, &.medium-stage {
-  > header picture {
-    &:before {
-      display: block;
-      content: "";
-      padding-top: calc((480 / 992) * 100)%;
-    }
+    > header picture {
+      &:before {
+        display: block;
+        content: "";
+        padding-top: calc((480 / 992) * 100)%;
+      }
     }
   }
-
   &.small-stage {
-  > header picture {
-    &:before {
-      display: block;
-      content: "";
-      padding-top: calc((240 / 992) * 100)%;
+    > header picture {
+      &:before {
+        display: block;
+        content: "";
+        padding-top: calc((240 / 992) * 100)%;
+      }
     }
   }
-  }
-
   > p.info {
     @mixin clearfix;
     margin: 20px;
+    &:empty {
+      display: none;
+    }
     .date {
       text-align: left;
       float: none;
@@ -51,7 +53,7 @@
       font-size: 14px;
       color: $color-copy-dim;
     }
-    .more-link {
+    .pkg[data-pkg="agency-pkg-elements/link"] {
       float: right;
       text-decoration: none;
       color: $color-link-default;
@@ -62,7 +64,7 @@
     }
   }
   > section {
-    > header + .area-content > *:first-child {
+    > header+ .area-content> *:first-child {
       &:first-child {
         margin-top: 20px;
       }
@@ -83,8 +85,6 @@
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
-
-
     > .partial[data-partial="elements/header"] {
       margin: 0;
       margin-bottom: 20px;

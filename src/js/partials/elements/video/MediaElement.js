@@ -3,8 +3,8 @@
 require("style!mediaelement/build/mediaelementplayer.min.css");
 var device = require('device.js');
 var mejs = require('exports?mejs!imports?jQuery=jquery!mediaelement/build/mediaelement-and-player');
-var Controller = require('../../../base/Controller');
-var DomModel = require('../../../base/DomModel');
+var Controller = require('agency-pkg-base/Controller');
+var DomModel = require('agency-pkg-base/DomModel');
 
 module.exports = Controller.extend({
     modelConstructor: DomModel.extend({

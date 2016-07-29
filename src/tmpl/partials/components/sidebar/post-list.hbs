@@ -11,17 +11,23 @@ items:
     title: 'Post 3.'
     url: '#post-3'
 ---
-
-<section class="partial grid-col-12-12 grid-col-sm-6-12 grid-col-md-12-12 grid" data-partial="components/sidebar/post-list">
-  {{{mixin "elements/header"}}}
-  <ul>
-    <li class="date">
-      {{{date}}}
-    </li>
-    {{#each items}}
-      <li>
-        {{{mixin "elements/link" this}}}
-    {{/each}}
-    </li>
-  </ul>
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
+{{{def group="settings" name="current-date" type="CheckBox" title="Current Date"}}}
+<section class="partial" data-partial="components/sidebar/post-list">
+  {{{mixin "elements/header" header}}}
+  {{{text}}}
+  {{#mixin "fragments/menu"}}
+      {{#content "content"}}
+        {{#each ../items}}
+            <li class="date">
+              {{{date}}}
+            </li>
+        <li>
+          {{{mixin "agency-pkg-elements/link" link}}}
+        {{/each}}
+      </li>
+      {{/content}}
+  {{/mixin}}
+  {{{area-content}}}
 </section>

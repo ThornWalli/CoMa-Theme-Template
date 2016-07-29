@@ -1,66 +1,68 @@
 {
-	"name": "CoMa-Theme-Template",
-	"version": "1.0.0",
-	"description": "CoMa - Theme-Template for the Wordpress CoMa-Theme",
-	"keywords": [
-		"coma",
-		"theme",
-		"boilerplate"
-	],
-	"homepage": "https://github.com/ThornWalli/CoMa-Theme-Template#readme",
-	"bugs": {
-		"url": "https://github.com/ThornWalli/CoMa-Theme-Template/issues"
-	},
-	"license": "GPL-3.0",
-	"author": "Thorn-Welf Walli",
-	"main": "none",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ThornWalli/CoMa-Theme-Template.git"
-	},
-	"scripts": {
-		"heroku": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=production --server=agency-server",
-		"build": "node node_modules/gulp/bin/gulp build --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=build",
-		"dev": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=development --server=agency-server",
-		"dev-ip": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=development --server=agency-server --ip=true",
-		"prod": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=production --server=agency-server",
-		"server": "node node_modules/gulp/bin/gulp default --serverConfig=./env/config/local.json --env=development --server=agency-server",
-		"test": "npm run build",
-		"template": "yo agency-boilerplate:hbs-template"
-	},
-	"dependencies": {
-		"ampersand-collection": "^1.6.1",
-		"ampersand-model": "^6.0.3",
-		"ampersand-state": "^4.9.1",
-		"ampersand-view": "^10.0.0",
-		"blockadblock": "^3.2.0",
-		"color": "^0.11.1",
-		"device.js": "^0.1.2",
-		"enum": "^2.2.0",
-		"es6-promise": "^3.0.2",
-		"fastdom": "^1.0.1",
-		"fastdom-sequencer": "^1.0.3",
-		"fontfaceobserver": "^1.6.1",
-		"gsap": "^1.18.4",
-		"historyjs": "^1.8.0-b2",
-		"jquery": "^2.1.4",
-		"lodash": "^4.6.1",
-		"mediaelement": "^2.21.2",
-		"modernizr": "^3.0.0",
-		"outdated-browser": "^1.0.2",
-		"pepjs": "^0.4.0",
-		"prevent-overscroll": "^0.1.0",
-		"prismjs": "^1.5.0",
-		"purecss": "^0.6.0",
-		"swiper": "^3.3.1",
-		"url": "^0.11.0"
-	},
-	"devDependencies": {
-		"agency-environment": "git+https://git@github.com/StephanGerbeth/agency-environment.git#version/2.0",
-		"agency-server": "git+https://git@github.com/StephanGerbeth/agency-server.git",
-		"fb": "^1.0.2",
-		"htmlescape": "^1.1.0",
-		"jshint": "^2.8.0",
-		"minimist": "^1.2.0"
-	}
+  "name": "CoMa-Theme-Template",
+  "version": "1.0.0",
+  "description": "CoMa - Theme-Template for the Wordpress CoMa-Theme",
+  "keywords": [
+    "coma",
+    "theme",
+    "boilerplate"
+  ],
+  "homepage": "https://github.com/ThornWalli/CoMa-Theme-Template#readme",
+  "bugs": {
+    "url": "https://github.com/ThornWalli/CoMa-Theme-Template/issues"
+  },
+  "license": "MIT",
+  "author": "Thorn-Welf Walli <lammpee@gmail.com>",
+  "contributors": [
+    {
+      "name": "Thorn Walli",
+      "email": "lammpee@gmail.com"
+    }
+  ],
+  "main": "none",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThornWalli/CoMa-Theme-Template.git"
+  },
+  "scripts": {
+    "heroku": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=production --server=agency-server",
+    "build": "node node_modules/gulp/bin/gulp build --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=build",
+    "dev": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=development --server=agency-server",
+    "dev-ip": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=development --server=agency-server --ip=true",
+    "prod": "node node_modules/gulp/bin/gulp run --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=production --server=agency-server",
+    "server": "node node_modules/gulp/bin/gulp default --serverConfig=./env/config/local.json --env=development --server=agency-server",
+    "test": "npm run build",
+    "template": "yo agency-boilerplate:hbs-template",
+    "create-package": "yo agency-boilerplate:package",
+    "export": "node node_modules/gulp/bin/gulp export --serverConfig=./env/config/local.json --configTasks=./env/config/tasks.json --env=export"
+  },
+  "dependencies": {
+    "agency-environment": "git+https://git@github.com/StephanGerbeth/agency-environment.git#feature/flat-files",
+    "agency-pkg-base": "git+https://git@github.com/StephanGerbeth/agency-pkg-base.git#feature/flat-files",
+    "agency-pkg-common": "git+https://git@github.com/StephanGerbeth/agency-pkg-common.git#feature/flat-files",
+    "agency-pkg-docs": "git+https://git@github.com/StephanGerbeth/agency-pkg-docs.git#feature/flat-files",
+    "agency-pkg-elements": "git+https://git@github.com/StephanGerbeth/agency-pkg-elements.git#feature/flat-files",
+    "agency-pkg-embed": "git+https://git@github.com/StephanGerbeth/agency-pkg-embed.git#feature/flat-files",
+    "agency-pkg-layouts": "git+https://git@github.com/StephanGerbeth/agency-pkg-layouts.git#feature/flat-files",
+    "agency-pkg-polyfills": "git+https://git@github.com/StephanGerbeth/agency-pkg-polyfills.git#feature/flat-files",
+    "agency-pkg-services": "git+https://git@github.com/StephanGerbeth/agency-pkg-services.git#feature/flat-files",
+    "agency-pkg-utils": "git+https://git@github.com/StephanGerbeth/agency-pkg-utils.git#feature/flat-files",
+    "agency-server": "git+https://git@github.com/StephanGerbeth/agency-server.git",
+    "color": "^0.11.1",
+    "device.js": "^0.1.2",
+    "fastdom": "^1.0.1",
+    "fastdom-sequencer": "^1.0.3",
+    "gsap": "^1.18.4",
+    "mediaelement": "^2.22.0",
+    "modernizr": "^3.0.0",
+    "prismjs": "^1.5.1",
+    "swiper": "^3.3.1",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "fb": "^1.0.2",
+    "htmlescape": "^1.1.0",
+    "jshint": "^2.8.0",
+    "minimist": "^1.2.0"
+  }
 }

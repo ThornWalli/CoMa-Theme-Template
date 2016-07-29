@@ -13,11 +13,15 @@ items:
     url: "#link-3"
 ---
 <ul class="fragment{{#if class}} {{class}}{{/if}}" data-partial="fragments/menu">
-  {{#block "main"}}
-    {{#each items}}
-      <li {{#if selected}} class="selected" {{/if}}>
-        {{{mixin "elements/link" this}}}
-      </li>
-    {{/each}}
+  {{#block "content"}}
+    {{#if area-content}}
+      {{{area-content}}}
+    {{else}}
+      {{#each items}}
+          <li {{#if selected}} class="selected" {{/if}}>
+            {{{mixin "agency-pkg-elements/link" this}}}
+          </li>
+      {{/each}}
+    {{/if}}
   {{/block}}
 </ul>

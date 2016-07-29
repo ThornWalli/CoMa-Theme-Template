@@ -1,11 +1,10 @@
 ---
 id: "VBafwg16xpU"
-fullscreen: true
+allow-fullscreen: true
 width: "auto"
 height: "auto"
-data:
-  inview-autoplay: true
+inview-autoplay: true
 ---
-<div class="partial controller" data-partial="elements/video/youtube" data-controller="./partials/elements/video/Youtube" data-src="//www.youtube.com/embed/{{id}}"{{#each data}}data-{{@key}}="{{this}}"{{/each}}>
-  <iframe id="video-youtube-{{{id}}}" frameborder="0" {{#if fullscreen}} allowfullscreen {{/if}} width="{{width}}" height="{{height}}"></iframe>
+<div class="partial controller" data-partial="elements/video/youtube" data-controller="./partials/elements/video/Youtube" data-src="//www.youtube.com/embed/{{id}}"{{#if inview-autoplay}}  data-inview-autoplay="true"{{/if}}>
+  <iframe id="video-youtube-{{{id}}}" frameborder="0" {{#if allow-fullscreen}} allowfullscreen {{/if}} width="{{width}}" height="{{height}}"></iframe>
 </div>

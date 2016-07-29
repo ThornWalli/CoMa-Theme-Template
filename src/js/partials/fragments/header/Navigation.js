@@ -1,7 +1,7 @@
 "use strict";
 
-var Controller = require('../../../base/Controller');
-var DomModel = require('../../../base/DomModel');
+var Controller = require('agency-pkg-base/Controller');
+var DomModel = require('agency-pkg-base/DomModel');
 
 module.exports = Controller.extend({
 

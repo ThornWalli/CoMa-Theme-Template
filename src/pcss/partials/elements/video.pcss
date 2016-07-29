@@ -1,27 +1,21 @@
 .partial[data-partial="elements/video"] {
   width: 100%;
 }
-
 .partial[data-partial*="elements/video/"] {
   position: relative;
   width: 100%;
-
   .mejs-container {
     height: 100%;
   }
-
   .js-modal-active .partial[data-partial*="layouts/modal"] & {
     width: 100% !important;
     height: 100% !important;
-
     .mejs-container {
       width: 100% !important;
       height: 100% !important;
-
       .mejs-inner {
         width: 100% !important;
         height: 100% !important;
-
         .mejs-mediaelement {
           video {
             position: fixed;
@@ -42,7 +36,6 @@
       }
     }
   }
-
   .play {
     position: absolute;
     top: 0;
@@ -51,7 +44,6 @@
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
-
     &:before {
       content: '';
       display: inline-block;
@@ -59,7 +51,6 @@
       vertical-align: middle;
       margin-right: -0.25em;
     }
-
     i {
       display: inline-block;
       vertical-align: middle;
@@ -67,38 +58,51 @@
       font-size: 2em;
     }
   }
-
   picture {
+    cursor: pointer;
     position: absolute;
     top: 0;
     height: 100%;
     width: 100%;
     visibility: hidden;
-
     &.js-active {
       visibility: visible;
     }
-
-    &:after {
-      content: '►';
+    &:before, &:after {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) rotate(360deg);
       display: block;
+      z-index: 2;
     }
-
+    &:before {
+      display: block;
+      content: '';
+      border: solid 4px;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+    &:after {
+      content: '';
+      margin-left: 2px;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-color: currentColor;
+      border-width: 15px 0 15px 20px;
+      border-color: transparent transparent transparent currentColor;
+    }
     &:hover {
-      &:after {
+      &:before, &:after {
         color: white;
       }
     }
   }
-
   > video {
     position: absolute;
     top: 0;
-
     + picture {
       pointer-events: none;
       visibility: visible;

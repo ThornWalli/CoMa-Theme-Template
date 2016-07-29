@@ -1,9 +1,11 @@
 "use strict";
 
-var Controller = require('../../base/Controller');
-var DomModel = require('../../base/DomModel');
+var Controller = require('agency-pkg-base/Controller');
+var DomModel = require('agency-pkg-base/DomModel');
 
 var PrismJS = require('prismjs');
+require("style!prismjs/themes/prism.css");
+require("style!prismjs/plugins/line-numbers/prism-line-numbers.css");
 
 module.exports = Controller.extend({
 

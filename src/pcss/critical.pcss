@@ -8,7 +8,6 @@
 @import "../../generated/pcss/purecss/grids-core.css";
 @import "../../generated/pcss/purecss/custom-grid.css";
 @import "../../generated/pcss/purecss/custom-grid-offset.css";
-
 @import "../../generated/pcss/purecss/custom-grid-gutter.css";
 @import "../../generated/pcss/purecss/custom-wrapper.css";
 
@@ -21,8 +20,11 @@ img[data-preload] {
 }
 
 @import "./partials/common.pcss";
-@import "./partials/elements/picture.critical.pcss";
 @import "./partials.critical.pcss";
+
+
+@import "agency-pkg-layouts/default";
+@import "agency-pkg-elements/picture";
 
 *, :before, :after {
   box-sizing: border-box;

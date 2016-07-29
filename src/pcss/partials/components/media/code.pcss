@@ -1,25 +1,6 @@
 .partial[data-partial="components/media/code"] {
   @mixin docHelper 600px;
-  body:not(.coma-edit-mode) & {
-    &:not(.js-code-init) {
-      > .code {
-        &:after {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          opacity: 1;
-          z-index: 10;
-          content: '';
-          background: rgba(255, 255, 255, 0.8);
-          background-image: url("../assets/img//spinner-2x.gif");
-          background-repeat: no-repeat;
-          background-position: center;
-        }
-      }
-    }
-  }
+
   &:before {
     float: right;
     color: #666666;
@@ -34,7 +15,7 @@
     margin: 0px 20px;
     margin-bottom: 20px;
   }
-  >.preview > header {
+  >.preview> header {
     margin: 20px 20px;
   }
   &.closed {
@@ -62,7 +43,7 @@
       display: none;
     }
   }
-  > input:not(:checked) + .code {
+  > input:not(:checked)+ .code {
     > .container-resizer-helper {
       display: none;
     }
@@ -100,7 +81,7 @@
       }
     }
   }
-  > input:checked + .code {
+  > input:checked+ .code {
     max-height: none;
     > .expander {
       display: none;

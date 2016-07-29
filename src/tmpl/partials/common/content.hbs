@@ -1,28 +1,32 @@
 ---
 has-sidebar: true
 ---
-<div class="grid-wrapper grid-g">
+<div class="grid-wrapper">
 
-{{#block "header"}}
-  {{{mixin "components/header" globals.header class="grid-col-12-12"}}}
-{{/block}}
+  <div class="grid-g">
 
-<main class="grid-col-12-12 grid-col-dm-offset-4-12 grid-col-sm-offset-4-12 grid-col-md-offset-3-12{{#if has-sidebar}} grid-col-sm-8-12 grid-col-md-6-12{{else}}grid-col-sm-8-12 grid-col-md-9-12{{/if}}">
-  {{#block "main"}}{{/block}}
-</main>
-{{#if has-sidebar}}
+  {{#block "header"}}
+    {{{mixin "components/header" globals.header class="grid-col-12-12"}}}
+  {{/block}}
 
-  <aside class="grid-col-12-12 grid-col-sm-8-12 grid-col-md-3-12 grid-col-sm-offset-4-12 grid-col-md-offset-0-12">
-    <div class="grid-g">
-      {{#block "sidebar"}}{{/block}}
-    </div>
-  </aside>
+  <main class="grid-col-12-12 grid-col-dm-offset-4-12 grid-col-sm-offset-4-12 grid-col-md-offset-3-12{{#if has-sidebar}} grid-col-sm-8-12 grid-col-md-6-12{{else}}grid-col-sm-8-12 grid-col-md-9-12{{/if}}">
+    {{#block "main"}}{{/block}}
+  </main>
+  {{#if has-sidebar}}
+
+    <aside class="grid-col-12-12 grid-col-sm-8-12 grid-col-md-3-12 grid-col-sm-offset-4-12 grid-col-md-offset-0-12">
+      <div class="grid-g">
+        {{#block "sidebar"}}{{/block}}
+      </div>
+    </aside>
 
 
-{{/if}}
+  {{/if}}
 
-{{#block "footer"}}
-  {{{mixin "components/footer" globals.footer class="grid-col-12-12"}}}
-{{/block}}
+  {{#block "footer"}}
+    {{{mixin "components/footer" globals.footer class="grid-col-12-12"}}}
+  {{/block}}
+
+  </div>
 
 </div>

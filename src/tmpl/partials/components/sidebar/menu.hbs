@@ -1,9 +1,13 @@
 ---
-headline-primary: false
-headline: "Sidebar"
-subline: "subline"
+header:
+  primary: false
+  headline: "Sidebar"
+  subline: "subline"
 ---
-<section class="partial grid-col-12-12 grid-col-sm-6-12 grid-col-md-12-12" data-partial="components/sidebar/menu">
-  {{{mixin "elements/header"}}}
-  {{{mixin "fragments/menu"}}}
+{{{def group="header" name="header" type="Headline"}}}
+{{{def name="text" type="Editor" title="Text"}}}
+<section class="partial" data-partial="components/sidebar/menu">
+  {{{mixin "elements/header" header}}}
+  {{{text}}}
+  {{{mixin "fragments/menu" area-content=area-content}}}
 </section>

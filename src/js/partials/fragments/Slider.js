@@ -1,7 +1,8 @@
 "use strict";
 
-var PositionObserver = require('../../base/scroll/PositionObserver');
+var PositionObserver = require('agency-pkg-base/scroll/PositionObserver');
 var Swiper = require('swiper');
+require("style!swiper/dist/css/swiper.css");
 
 module.exports = PositionObserver.extend({
     swiper: null,
@@ -55,8 +56,7 @@ module.exports = PositionObserver.extend({
 
     },
 
-    onActive: function(info) {
-        console.log(info.y);
+    onActive: function() {
         if (!this.visible) {
             if (this.init) {
                 this.swiper.startAutoplay();

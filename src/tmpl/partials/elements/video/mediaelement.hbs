@@ -1,10 +1,30 @@
 ---
+video:
+  sources:
+    -
+      type: "video/mp4"
+      media: "(min-width: 1200px)"
+      url: "../../external/videos/bigbuckbunny.mp4"
+    -
+      type: "video/mp4"
+      url: "../../external/videos/bigbuckbunny.mp4"
+      config:
+        autoplay: false
+        controls: true
 poster:
   class: "align-vertical-center-default js-active"
   sources:
     - {type: 'default', srcset: '//dummyimage.com/992x558/333333/fff'}
+config:
+  startVolume: 0.8
+  loop: false
+  enableKeyboard: false
+  pauseOtherPlayers: true
 ---
-<div class="partial constroller" data-partial="elements/video/mediaelement" data-controller="./partials/elements/video/Mediaelement">
-    {{{extend "elements/video"}}}
-    {{{extend "elements/picture" poster}}}
+<div class="partial controller" data-partial="elements/video/mediaelement" data-controller="./partials/elements/video/Mediaelement">
+    {{#mixin "elements/video" video}}
+      {{#content "class"}}align-vertical-center-default js-active{{/content}}
+      {{#content "attributes"}}controls {{#each config}} data-{{{@key}}}="{{{this}}}"{{/each}}{{/content}}
+    {{/mixin}}
+    {{{mixin "agency-pkg-elements/picture" poster}}}
 </div>

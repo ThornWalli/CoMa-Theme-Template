@@ -1,0 +1,19 @@
+---
+area-content: "no area content"
+---
+<section class="partial {{{class}}}" data-partial="areas/post-list">
+
+    <!-- Set class "area-content" for CoMa. -->
+    <div class="content area-content">
+
+      {{#block "area-content"}}
+
+        {{#each area-content}}
+          {{{this}}}
+        {{/each}}
+
+      {{/block}}
+
+    </div>
+
+</section>

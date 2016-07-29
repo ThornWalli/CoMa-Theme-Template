@@ -1,6 +1,6 @@
 "use strict";
 
-var ScrollDirectionObserver = require('../../base/scroll/DirectionObserver');
+var ScrollDirectionObserver = require('agency-pkg-base/scroll/DirectionObserver');
 var TweenMax = require('gsap');
 
 module.exports = ScrollDirectionObserver.extend({

@@ -1,23 +1,25 @@
 ---
-image:
+picture:
   sources:
     - {type: 'default', srcset: '//dummyimage.com/992x480/333333/fff'}
+with-link: true
 link:
   url: "#media-image"
   title: "Media Image"
 ---
+{{{def name="with-link" type="CheckBox" title="With Link" desc="Need for used Link"}}}
+{{{def name="link" type="Link" value=link title="Link"}}}
+{{{def name="picture" type="Picture" title="Picture"}}}
 <div class="partial" data-partial="components/media/image">
-
   <div>
-    {{#if link}}
-      {{#mixin "elements/link"}}
+    {{#if with-link}}
+      {{#mixin "agency-pkg-elements/link" link}}
         {{#content "title"}}
-          {{{mixin "elements/picture" ../image}}}
+          {{{mixin "agency-pkg-elements/picture" ../picture}}}
         {{/content}}
       {{/mixin}}
     {{else}}
-      {{{mixin "elements/picture" image}}}
+      {{{mixin "agency-pkg-elements/picture" picture}}}
     {{/if}}
   </div>
-
 </div>

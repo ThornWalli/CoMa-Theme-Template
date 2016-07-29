@@ -33,7 +33,7 @@
     "assets": "<%= destination %>/assets/",
     "layouts": {
       "files": {
-        "src": "./src/tmpl/partials/layouts/**/*.hbs"
+        "src": ["./src/tmpl/partials/layouts/**/*.hbs"]
       },
       "options": {
         "base": "./src/tmpl/partials"
@@ -70,10 +70,11 @@
     },
     "subtasks": [{
       "name": "pages",
-      "layout": "layouts/default",
+      "layout": "agency-pkg-layouts/default",
+      "renderingOnce": false,
       "files": {
         "src": ["./src/tmpl/**/*.hbs", "!./src/tmpl/partials/**/*.hbs"],
-        "dest": "<%= destination %>"
+        "dest": "<%= destination %>/"
       },
       "data": {
         "cwd": "./src/data/",
@@ -81,21 +82,57 @@
       }
     }, {
       "name": "docs",
-      "layout": "layouts/documentation",
+      "layout": "agency-pkg-layouts/default",
+      "renderingOnce": false,
+      "files": {
+        "src": ["./node_modules/agency-pkg-docs/docs/*.hbs"],
+        "dest": "<%= destination %>/docs/",
+        "base": "./node_modules/agency-pkg-docs/docs/"
+      },
+      "data": {
+        "cwd": "./node_modules/agency-pkg-docs/docs/data/",
+        "src": ["./**/*.{json,yaml}", "!./globals/**/*.{json,yaml}"]
+      }
+    }, {
+      "name": "docs-partials",
+      "layout": "agency-pkg-layouts/documentation",
+      "renderingOnce": false,
       "files": {
         "src": ["./src/tmpl/partials/**/*.hbs", "!./src/tmpl/partials/common/**/*.hbs", "!./src/tmpl/partials/layouts/**/*.hbs"],
-        "dest": "<%= destination %>",
+        "dest": "<%= destination %>/docs/",
         "base": "./src/tmpl/"
+      }
+    }, {
+      "name": "docs-packages",
+      "layout": "agency-pkg-layouts/documentation",
+      "renderingOnce": true,
+      "files": {
+        "src": [],
+        "dest": "<%= destination %>/docs/packages",
+        "base": "./node_modules/"
       }
     }],
     "watch": [{
       "src": ["src/tmpl/**/*.hbs", "src/data/**/*.json"]
     }]
   },
+  "registerpackages": {
+    "subtasks": [{
+      "name": "default",
+      "pattern": [
+        "agency-pkg-*",
+        "gp-pkg-*"
+      ]
+    }]
+  },
   "postcss": {
     "subtasks": [{
       "name": "default",
-      "sourcemap": false,
+      "packagePattern": [
+        "agency-pkg-*",
+        "gp-pkg-*"
+      ],
+      "sourcemap": true,
       "plugins": [{
         "name": "postcss-import",
         "params": []
@@ -134,14 +171,39 @@
     "columnHasPrefix": true,
     "columns": 12,
     "columnPrefix": "col",
-    "wrapperBreakpoints": ["md", "lg"],
     "breakpoints": {
-      "xs": "30em",
-      "sm": "48em",
-      "md": "62em",
-      "lg": "75em"
+      "default": {
+        "gutterWidth": "0.9375rem",
+        "wrapper": {
+          "overflow": "hidden"
+        }
+      },
+      "xs": {
+        "width": "30em",
+        "wrapper": {
+          "margin": "auto",
+          "max-width": "30em"
+        }
+      },
+      "sm": {
+        "width": "48em",
+        "wrapper": {
+          "max-width": "48em"
+        }
+      },
+      "md": {
+        "width": "62em",
+        "wrapper": {
+          "max-width": "62em"
+        }
+      },
+      "lg": {
+        "width": "75em",
+        "wrapper": {
+          "max-width": "75em"
+        }
+      }
     },
-    "gutterWidth" : "0.375rem",
     "files": {
       "dest": "./generated/pcss/",
       "src": ["base", "grids-core"]
@@ -225,9 +287,9 @@
       "name": "embed",
 
       "entry": {
-        "picture": "./src/js/polyfills/picture",
-        "animationFrame": "./src/js/polyfills/animationFrame",
-        "embed": "./src/js/embed"
+        "animationFrame": "agency-pkg-polyfills/animationFrame",
+        "picture": "agency-pkg-polyfills/picture",
+        "embed": "agency-pkg-embed"
       },
 
       "plugins": [{
@@ -236,7 +298,7 @@
         "script": "agency-environment/lib/webpack/plugins/chunk",
         "config": {
           "main": "_main.js",
-          "packages": ["picture", "animationFrame", "embed"]
+          "packages": ["polyfills", "embed"]
         }
       }, {
         "script": "agency-environment/lib/webpack/plugins/uglify",
@@ -266,6 +328,34 @@
         "src": ["./src/js/polyfills/animationFrame", "./src/js/polyfills/picture", "./src/js/embed"],
         "dest": "<%= destination %>/js/embed/[name].js",
         "library": ["[name]"]
+      }
+    }]
+  },
+  "zipcompress": {
+    "subtasks": [{
+      "name": "default",
+      "excludes": [],
+      "files": {
+        "src": ["<%= destination %>"],
+        "dest": "<%= destination %>"
+      }
+    }]
+  },
+  "exporthbs": {
+    "subtasks": [{
+      "name": "default",
+      "files": {
+        "src": ["./src/tmpl/partials/**/*.hbs"],
+        "dest": "<%= destination %>/hbs"
+      }
+    }, {
+      "name": "packages",
+      "files": {
+        "src": [],
+        "dest": "<%= destination %>/hbs"
+      },
+      "options": {
+        "base": "./node_modules"
       }
     }]
   }
