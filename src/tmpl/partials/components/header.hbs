@@ -10,7 +10,7 @@ site-url: "#site-url"
 <header class="partial{{#if class}} {{class}}{{/if}}" data-partial="components/header">
   <div class="grid-g">
     <div class="grid-col-12-12">
-      {{!-- If single-template, header titles are down graded. --}}
+      {{!-- Single-template header titles are down graded. --}}
       {{#if single-page}}
         <h1><a href="{{{site-url}}}">{{{headline}}}</a></h1>
         <h2>{{{subline}}}</h2>
@@ -19,7 +19,7 @@ site-url: "#site-url"
         <h3>{{{subline}}}</h3>
       {{/if}}
     </div>
-    <div class="navigation grid-col-12-12 grid-col-sm-4-12 grid-col-md-3-12 grid-col-lg-3-12">
+    <div class="navigation grid-col-12-12 grid-col-sm-4-12 grid-col-md-3-12">
       {{{mixin "fragments/header/navigation"}}}
     </div>
   </div>

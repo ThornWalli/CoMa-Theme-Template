@@ -12,7 +12,6 @@ video:
         autoplay: false
         controls: true
 poster:
-  class: "align-vertical-center-default js-active"
   sources:
     - {type: 'default', srcset: '//dummyimage.com/992x558/333333/fff'}
 config:
@@ -26,5 +25,5 @@ config:
       {{#content "class"}}align-vertical-center-default js-active{{/content}}
       {{#content "attributes"}}controls {{#each config}} data-{{{@key}}}="{{{this}}}"{{/each}}{{/content}}
     {{/mixin}}
-    {{{mixin "agency-pkg-elements/picture" poster}}}
+    {{{mixin "agency-pkg-elements/picture" poster class="align-vertical-center-default js-active"}}}
 </div>
